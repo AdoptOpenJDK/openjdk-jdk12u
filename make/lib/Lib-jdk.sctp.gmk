@@ -29,7 +29,7 @@ include LibCommon.gmk
 
 ifeq ($(OPENJDK_TARGET_OS_TYPE), unix)
 
-  ifeq ($(filter $(OPENJDK_TARGET_OS), macosx aix), )
+  ifeq ($(filter $(OPENJDK_TARGET_OS), macosx aix bsd), )
     $(eval $(call SetupJdkLibrary, BUILD_LIBSCTP, \
         NAME := sctp, \
         OPTIMIZATION := LOW, \

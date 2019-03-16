@@ -40,6 +40,7 @@ public class OSInfo {
         LINUX,
         SOLARIS,
         MACOSX,
+        BSD,
         UNKNOWN
     }
 
@@ -105,6 +106,10 @@ public class OSInfo {
 
             if (osName.contains("OS X")) {
                 return MACOSX;
+            }
+
+            if (osName.endsWith("BSD")) {
+                return BSD;
             }
 
             // determine another OS here

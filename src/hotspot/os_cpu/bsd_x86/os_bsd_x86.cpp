@@ -660,7 +660,11 @@ JVM_handle_bsd_signal(int sig,
           stub = SharedRuntime::continuation_for_implicit_exception(thread, pc, SharedRuntime::IMPLICIT_NULL);
       }
     } else if (thread->thread_state() == _thread_in_vm &&
+#ifdef __FreeBSD__
+               (sig == SIGBUS || sig == SIGSEGV) &&
+#else
                sig == SIGBUS && /* info->si_code == BUS_OBJERR && */
+#endif
                thread->doing_unsafe_access()) {
         address next_pc = Assembler::locate_next_instruction(pc);
         stub = SharedRuntime::handle_unsafe_access(thread, next_pc);

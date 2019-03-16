@@ -31,7 +31,7 @@ $(eval $(call IncludeCustomExtension, lib/Lib-java.management.gmk))
 ################################################################################
 
 LIBMANAGEMENT_OPTIMIZATION := HIGH
-ifneq ($(findstring $(OPENJDK_TARGET_OS), solaris linux), )
+ifneq ($(findstring $(OPENJDK_TARGET_OS), solaris linux bsd), )
   ifeq ($(COMPILE_WITH_DEBUG_SYMBOLS), true)
     LIBMANAGEMENT_OPTIMIZATION := LOW
   endif

@@ -5365,6 +5365,23 @@
           </df>
         </df>
         <df name="jdk.hotspot.agent">
+          <df name="bsd">
+            <df name="native">
+              <df name="libsaproc">
+                <in>BsdDebuggerLocal.c</in>
+                <in>elfmacros.h</in>
+                <in>libproc.h</in>
+                <in>libproc_impl.c</in>
+                <in>libproc_impl.h</in>
+                <in>ps_core.c</in>
+                <in>ps_proc.c</in>
+                <in>salibelf.c</in>
+                <in>salibelf.h</in>
+                <in>symtab.c</in>
+                <in>symtab.h</in>
+              </df>
+            </df>
+          </df>
           <df name="linux">
             <df name="native">
               <df name="libsaproc">
@@ -38380,6 +38397,61 @@
             flavor2="0">
       </item>
       <item path="../../src/jdk.crypto.ucrypto/solaris/native/libj2ucrypto/nativeFunc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/BsdDebuggerLocal.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/elfmacros.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/libproc.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/libproc_impl.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/libproc_impl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/ps_core.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/ps_proc.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/salibelf.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/salibelf.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/symtab.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../../src/jdk.hotspot.agent/bsd/native/libsaproc/symtab.h"
             ex="false"
             tool="3"
             flavor2="0">

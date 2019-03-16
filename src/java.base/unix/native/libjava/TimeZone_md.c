@@ -57,7 +57,11 @@
 #endif
 
 #if defined(__linux__) || defined(_ALLBSD_SOURCE)
+#ifdef __FreeBSD__
+static const char *ETC_TIMEZONE_FILE = "/var/db/zoneinfo";
+#else
 static const char *ETC_TIMEZONE_FILE = "/etc/timezone";
+#endif
 static const char *ZONEINFO_DIR = "/usr/share/zoneinfo";
 static const char *DEFAULT_ZONEINFO_FILE = "/etc/localtime";
 #else
@@ -70,7 +74,7 @@ static const char *DEFAULT_ZONEINFO_FILE = "/usr/share/lib/zoneinfo/localtime";
 static const char *ETC_ENVIRONMENT_FILE = "/etc/environment";
 #endif
 
-#if defined(__linux__) || defined(MACOSX) || defined(__solaris__)
+#if defined(__linux__) || defined(_ALLBSD_SOURCE) || defined(__solaris__)
 
 /*
  * Returns a pointer to the zone ID portion of the given zoneinfo file
@@ -210,7 +214,7 @@ findZoneinfoFile(char *buf, size_t size, const char *dir)
     return tz;
 }
 
-#if defined(__linux__) || defined(MACOSX)
+#if defined(__linux__) || defined(_ALLBSD_SOURCE)
 
 /*
  * Performs Linux specific mapping and returns a zone ID
@@ -227,7 +231,7 @@ getPlatformTimeZoneID()
     size_t size;
     int res;
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(_BSDONLY_SOURCE) 
     /*
      * Try reading the /etc/timezone file for Debian distros. There's
      * no spec of the file format available. This parsing assumes that
@@ -251,7 +255,7 @@ getPlatformTimeZoneID()
             return tz;
         }
     }
-#endif /* defined(__linux__) */
+#endif /* defined(__linux__) || defined(_BSDONLY_SOURCE) */
 
     /*
      * Next, try /etc/localtime to find the zone ID.
@@ -822,7 +826,7 @@ findJavaTZ_md(const char *java_home_dir)
  * Returns a GMT-offset-based zone ID. (e.g., "GMT-08:00")
  */
 
-#if defined(MACOSX)
+#if defined(_ALLBSD_SOURCE)
 
 char *
 getGMTOffsetID()
@@ -887,4 +891,4 @@ getGMTOffsetID()
             sign, (int)(offset/3600), (int)((offset%3600)/60));
     return strdup(buf);
 }
-#endif /* MACOSX */
+#endif /* _ALLBSD_SOURCE */

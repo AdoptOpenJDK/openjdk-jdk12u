@@ -32,7 +32,7 @@ ifneq ($(OPENJDK_TARGET_OS), windows)
   include GensrcIcons.gmk
 endif
 
-ifneq ($(filter $(OPENJDK_TARGET_OS), linux solaris aix), )
+ifneq ($(filter $(OPENJDK_TARGET_OS), linux solaris aix bsd), )
   include GensrcX11Wrappers.gmk
 endif
 
