@@ -109,6 +109,10 @@ typedef struct {
     char *awt_headless;  /* java.awt.headless setting, if NULL (default) will not be set */
 #endif
 
+#ifdef __OpenBSD__
+    char *java_net_preferIPv4Stack; /* Needed to default to true OpenBSD. */
+#endif
+
 } java_props_t;
 
 java_props_t *GetJavaProperties(JNIEnv *env);

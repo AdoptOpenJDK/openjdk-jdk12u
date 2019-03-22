@@ -187,6 +187,7 @@ Java_java_net_PlainSocketImpl_socketCreate(JNIEnv *env, jobject this,
         return;
     }
 
+#ifndef __OpenBSD__
     /* Disable IPV6_V6ONLY to ensure dual-socket support */
     if (domain == AF_INET6) {
         int arg = 0;
@@ -197,6 +198,7 @@ Java_java_net_PlainSocketImpl_socketCreate(JNIEnv *env, jobject this,
             return;
         }
     }
+#endif
 
     /*
      * If this is a server socket then enable SO_REUSEADDR
