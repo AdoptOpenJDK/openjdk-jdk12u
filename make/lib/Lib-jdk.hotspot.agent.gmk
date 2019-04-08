@@ -36,7 +36,10 @@ else ifeq ($(OPENJDK_TARGET_OS), solaris)
   SA_LDFLAGS := -mt
 
 else ifeq ($(OPENJDK_TARGET_OS), bsd)
-  SA_CFLAGS := -Wno-error=format-nonliteral -Wno-sign-compare -Wno-error=tautological-pointer-compare
+  SA_CFLAGS := -Wno-error=format-nonliteral -Wno-sign-compare
+  ifeq ($(TOOLCHAIN_TYPE), clang)
+    SA_CFLAGS += -Wno-error=tautological-pointer-compare
+  endif
 
 else ifeq ($(OPENJDK_TARGET_OS), macosx)
   SA_CFLAGS := -Damd64 -D_GNU_SOURCE -mno-omit-leaf-frame-pointer \
