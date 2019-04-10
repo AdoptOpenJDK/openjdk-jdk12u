@@ -23,17 +23,17 @@
 
 /*
  * @test
- * @summary run CTW for all classes from jdk.jartool module
+ * @summary run CTW for all classes from jdk.unsupported.desktop module
  *
  * @library /test/lib / /testlibrary/ctw/src
  * @modules java.base/jdk.internal.access
  *          java.base/jdk.internal.jimage
  *          java.base/jdk.internal.misc
  *          java.base/jdk.internal.reflect
- * @modules jdk.jartool
+ * @modules jdk.unsupported.desktop
  *
  * @build sun.hotspot.WhiteBox
  * @run driver ClassFileInstaller sun.hotspot.WhiteBox
  *                                sun.hotspot.WhiteBox$WhiteBoxPermission
- * @run driver/timeout=7200 sun.hotspot.tools.ctw.CtwRunner modules:jdk.jartool
+ * @run driver/timeout=7200 sun.hotspot.tools.ctw.CtwRunner modules:jdk.unsupported.desktop
  */
